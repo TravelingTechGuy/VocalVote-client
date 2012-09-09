@@ -1,5 +1,7 @@
 package com.example.musicbox2;
 
+import java.util.ArrayList;
+
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -15,7 +17,9 @@ import android.widget.TextView;
 
 public class MainActivity extends FragmentActivity {
 
-    /** 
+	public static ArrayList<Song> songs;
+	
+    /**
      * The {@link android.support.v4.view.PagerAdapter} that will provide fragments for each of the
      * sections. We use a {@link android.support.v4.app.FragmentPagerAdapter} derivative, which will
      * keep every loaded fragment in memory. If this becomes too memory intensive, it may be best
@@ -30,6 +34,9 @@ public class MainActivity extends FragmentActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
+    	getSongs();
+    	
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         // Create the adapter that will return a fragment for each of the three primary sections
@@ -43,6 +50,27 @@ public class MainActivity extends FragmentActivity {
         //mViewPager.setCurrentItem(1);
 
     }
+
+    
+    
+    public void getSongs(){
+    	
+    	songs = new ArrayList<Song>();
+    	
+    	
+    	songs.add(new Song("Song 1", R.drawable.cp01));
+    	songs.add(new Song("Song 2", R.drawable.cp02));
+    	songs.add(new Song("Song 3", R.drawable.cp03));
+    	songs.add(new Song("Song 4", R.drawable.cp04));
+    	songs.add(new Song("Song 5", R.drawable.cp01));
+    	songs.add(new Song("Song 6", R.drawable.cp02));
+    	songs.add(new Song("Song 7", R.drawable.cp03));
+    	songs.add(new Song("Song 8", R.drawable.cp04));
+    	
+    	
+    	
+    }
+    
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
